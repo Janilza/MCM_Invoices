@@ -37,8 +37,8 @@ if($password != $passwordc){
 
 	//********Verificar se já existe o user escolhido*******************************
 	$sql = "select * from utilizador where user='$user' ";//selecionar tudo da tabela quando user for igual ao $user
-	$query = mysql_query($sql); //executa o query
-	$pesquisa = mysql_num_rows($query); //o total das linhas encontradas
+	$query = mysqli_query($sql); //executa o query
+	$pesquisa = mysqli_num_rows($query); //o total das linhas encontradas
 
 	if (($pesquisa)=='0'){
 		//pois se foi 0, não encontrou nenhum registro igual - FAZ O INSERT  
@@ -50,7 +50,7 @@ if($password != $passwordc){
 			$sql = "INSERT INTO utilizador (nome, apelido, email, contacto, user, password) VALUES
 			('".trim($nome)."', '".trim($apelido)."', '".trim($email)."', '".trim($contacto)."', '".trim($user)."', '".trim($password)."')";
 			
-			$result = mysql_query($sql) or die(mysql_error());
+			$result = mysqli_query($sql) or die(mysqli_error());
 	 
 			//retorna 1 para no sucesso do ajax saber que foi com inserido sucesso
 			//echo "1";
